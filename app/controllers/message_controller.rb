@@ -1,12 +1,9 @@
 class MessageController < ApplicationController
   def random_greeting
+   
+  end
+  def api_call
     message = Message.order('RANDOM()').first
-    
-    respond_to do |format|
-      format.html
-      format.json do
-        render json: { greeting: message.content }
-      end
-    end
+    render json: { greeting: message.content }
   end
 end
